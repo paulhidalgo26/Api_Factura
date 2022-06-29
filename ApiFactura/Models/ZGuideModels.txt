@@ -1,0 +1,23 @@
+﻿MODELS EXPLANATION
+
+In these folder exists 4 types of files.
+
+COMMON
+
+
+REQUEST
+	In this folder there are files that indicate the Frontend in which format the Backend wants to receive the data to work.
+	For example, SaleRequest.CS is a file with two classes, the Sale class and the SaleDetail class where each
+	has it's own attributes for the Backend can work with them with less difficult and also permits VALIDATIONS FROM ATTRIBUTES.
+
+RESPONSE
+	In this folder there are files that give the BackEnd responses a format.
+	For example, Response.CS is a class with Attributes like Success, Message and Data where
+	the Banckend can indicate if the request was succesful, a message to diagnose and the
+	data that the request requested (that can be Product, UserClient, Sale, etc...), respectively.
+
+ModelsFileDB
+	This files are dispersed for all the folder.
+	They are the files neccessary to make a conection with the DB.
+	They extracts the data from DB and give them the same format from the DB
+	but now .NETCore can work with these data
