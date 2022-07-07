@@ -7,7 +7,7 @@
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal Cost { get; set; }
-        public string ImageURL { get; set; }
+       // public string ImageURL { get; set; }
 
     }
 }

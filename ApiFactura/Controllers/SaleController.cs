@@ -31,7 +31,7 @@ namespace ApiFactura.Controllers
             {
                 using (Context DB = new Context())
                 {
-                    var saleList = DB.Sales.OrderBy(b => b.Date)
+                    var saleList = DB.Sales.OrderByDescending(b => b.Date)
                         .ToList();
                     R.Success = true;
                     R.Message = "SaleGet Succesful";
@@ -72,7 +72,7 @@ namespace ApiFactura.Controllers
         #endregion
 
         #region AddSale
-        [Authorize(Roles = "client")]
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public IActionResult Add(SaleRequest saleRequested)
         {
