@@ -31,7 +31,7 @@ namespace ApiFactura.Controllers
             {
                 using (Context DB = new Context())
                 {
-                    var saleList = DB.Sales.OrderByDescending(b => b.Date)
+                    var saleList = DB.Sales.OrderByDescending(b => b.Id)
                         .ToList();
                     R.Success = true;
                     R.Message = "SaleGet Succesful";

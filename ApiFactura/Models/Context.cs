@@ -26,6 +26,7 @@ namespace ApiFactura.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
+                //source=PAUL\SQLEXPRESS;initial catalog=BDFactura;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" 
                 optionsBuilder.UseSqlServer("Data Source=SQL8002.site4now.net;Initial Catalog=db_a88d98_appmivil;User Id=db_a88d98_appmivil_admin;Password=p.hidalgo12;Encrypt=False");
             }
         }

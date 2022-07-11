@@ -56,7 +56,9 @@ namespace ApiFactura.Models.Request
     }
     public class ProductExistsAttribute : ValidationAttribute
     {
+#pragma warning disable CS8765 // La nulabilidad del tipo de parámetro no coincide con el miembro invalidado (posiblemente debido a los atributos de nulabilidad).
         public override bool IsValid(object value)
+#pragma warning restore CS8765 // La nulabilidad del tipo de parámetro no coincide con el miembro invalidado (posiblemente debido a los atributos de nulabilidad).
         {
             int idClient = (int)value;
             try

@@ -4,6 +4,7 @@ using ApiFactura.Models.Request;
 using ApiFactura.Models.Response;
 using ApiFactura.Services;
 using ApiFactura.Services.ProductServices;
+using Microsoft.Data.SqlClient;
 
 namespace ApiFactura.Services.SaleServices
 {
@@ -11,6 +12,12 @@ namespace ApiFactura.Services.SaleServices
     {
         public Response Add(SaleRequest saleRequested)
         {
+            string cadena = "Data Source=SQL8002.site4now.net;Initial Catalog=db_a88d98_appmivil;User Id=db_a88d98_appmivil_admin;Password=p.hidalgo12;Encrypt=False";
+            SqlConnection conexion = new SqlConnection(cadena);
+            conexion.Open();
+            SqlCommand command = new SqlCommand("select SYSDATETIME()", conexion);
+            string fecha = command.ExecuteScalar().ToString();
+            conexion.Close();
             Response R = new Response();
             ProductService pS = new ProductService();
             using (Context DB = new Context())
@@ -25,8 +32,8 @@ namespace ApiFactura.Services.SaleServices
                             total += DB.Products.Find(saleDetail.IDProduct).UnitPrice * saleDetail.Quantity;
                         }
                         var newSale = new Sale();
-                        newSale.Total = total * (decimal)1.1;
-                        newSale.Date = DateTime.Now;
+                        newSale.Total = total;// * (decimal)1.1
+                        newSale.Date = DateTime.Parse(fecha);//consultar base el servidor 
                         newSale.IduserClient = saleRequested.IDUserClient;
                         DB.Sales.Add(newSale);
                         DB.SaveChanges();
